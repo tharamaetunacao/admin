@@ -2,8 +2,15 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { useAuth } from "../context/AuthProvider";
-import { FiBookOpen, FiUsers, FiLogOut, FiList, FiMessageCircle } from "react-icons/fi";
-import { LayoutDashboard } from "lucide-react";
+import {
+  FiBookOpen,
+  FiUsers,
+  FiLogOut,
+  FiList,
+  FiMessageCircle,
+  FiMail,
+} from "react-icons/fi";
+import { LayoutDashboard, Utensils } from "lucide-react"; // 🍽 Added Utensils icon
 
 export default function AdminLayout({ children }) {
   const { user } = useAuth();
@@ -23,6 +30,7 @@ export default function AdminLayout({ children }) {
             <h1 className="text-2xl font-bold">Admin Panel</h1>
             <p className="text-sm text-green-100 mt-1">{user?.email}</p>
           </div>
+
           <nav className="mt-6 space-y-2 px-4">
             <Link
               to="/admin"
@@ -47,6 +55,13 @@ export default function AdminLayout({ children }) {
               <FiBookOpen className="text-lg" />
               <span>Manage Meal Logs</span>
             </Link>
+            <Link
+              to="/admin/meal-plan"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-green-600 transition"
+            >
+              <Utensils className="w-5 h-5" />
+              <span>Meal Plan</span>
+            </Link>
 
             <Link
               to="/admin/users"
@@ -56,13 +71,20 @@ export default function AdminLayout({ children }) {
               <span>Manage Users</span>
             </Link>
 
-            {/* New: Manage Feedback */}
             <Link
               to="/admin/feedback"
               className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-green-600 transition"
             >
               <FiMessageCircle className="text-lg" />
               <span>Manage Feedback</span>
+            </Link>
+
+            <Link
+              to="/admin/contact"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-green-600 transition"
+            >
+              <FiMail className="text-lg" />
+              <span>Contact Messages</span>
             </Link>
           </nav>
         </div>

@@ -8,6 +8,9 @@ import DishesAdmin from "./pages/DishesAdmin";
 import MealLogsAdmin from "./pages/MealLogsAdmin";
 import UsersAdmin from "./pages/UsersAdmin";
 import FeedbackAdmin from "./pages/FeedbackAdmin"; // ✅ Import feedback page
+import ContactUsAdmin from "./pages/ContactUsAdmin";
+import MealPlanAdmin from "./pages/MealPlanAdmin";
+
 
 export default function App() {
   return (
@@ -52,6 +55,22 @@ export default function App() {
           element={
             <AdminRoute>
               <FeedbackAdmin />
+            </AdminRoute>
+          }
+        />
+        <Route 
+            path="/admin/contact" 
+            element={
+          <AdminRoute>
+            <ContactUsAdmin />
+          </AdminRoute>
+          } 
+        />
+        <Route
+          path="/admin/meal-plan"
+          element={
+            <AdminRoute>
+              <MealPlanAdmin />
             </AdminRoute>
           }
         />
